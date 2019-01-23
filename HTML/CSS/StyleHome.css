@@ -1,0 +1,88 @@
+@charset "utf-8"
+/* Formatacao*/
+html{
+
+	height: 100%;
+
+}
+
+body {
+
+	font-family: Verdana, Tahoma, Arial;
+	font-size:20px;
+
+	margin:0;
+
+	padding:0;
+
+	height:100%;
+
+}
+#all{
+
+	height:100%;
+
+	width:100%;
+}
+body
+{
+
+	background-color: none;
+}
+/* Menus*/
+.menu{
+list-style:none;
+margin-left: 20px; 
+top: 0px;
+margin-right:20px;
+}
+.menu li{
+position:relative; 
+float:left; 
+padding:5px 20px;
+
+}
+.menu li a{color:#333; text-decoration:none;  }
+ 
+.menu li a:hover{
+background:#00000054;
+color:#00000054;
+-moz-box-shadow:0 3px 10px 0 #CCC; 
+-webkit-box-shadow:0 3px 10px 0 #ccc; 
+text-shadow:0px 0px 5px #fff; 
+}
+.menu li  ul{
+position:absolute; 
+top:25px; 
+left:0; 
+display:none;
+}   
+.menu li:hover ul, .menu li.over ul{display: table-row;}
+.menu li ul li{
+list-style:none;
+display:inline;
+width:280px;
+}
+/* Inputs*/
+}
+input, select, textarea {
+    width: 400px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+input[type=submit] {
+	width: 100px;
+}
+/* labels*/
+b{
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    color: black;
+}
+
+/* Divs*/
+#Login{
+	display:compact
+}

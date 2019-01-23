@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<title>Cadastro de Solicitantes</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">		
+		<meta name="description" content="">
+		<meta name="author" content="Matheus">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<link rel="shortcut icon" href="IMG/network.png">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">		
+		<link href="CSS/bootstrap.min.css"  rel="stylesheet" type="text/css"/>
+		<script src="JS/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+		<script src="JS/jquery.mask.min.js" type="text/javascript"></script>
+		<script src="JS/jquery.validate.min.js" type="text/javascript"></script>		
+		<script src="JS/bootstrap.min.js" type="text/javascript"></script>
+		<script src="JS/bootstrap-notify.min.js" type="text/javascript"></script>
+		<script src="JS/BuscaCep.js" type="text/javascript"></script>
+		<script src="JS/Validacoes.js" type="text/javascript"></script>
+		<script>
+			$(document).ready(function(){
+  	$('#CPF').mask('000.000.000-00');
+});
+		$(document).ready(function(){
+  	$('#Tel_1').mask('(00)0000-0000');
+});
+		$(document).ready(function(){
+  	$('#Tel_2').mask('(00)00000-0000');
+});
+		$(document).ready(function(){
+  	$('#CEP').mask('00000-000');
+});
+	$(document).ready(function(){
+  	$('#DT_Nascimento').mask('00/00/0000');
+});
+	$(document).ready(function(){
+  	$('#DT_Conclusao').mask('00/0000');
+});
+		</script>
+		<style type="text/css">
+			#TIPO{
+				display: none;
+			}			
+			body{
+				background: url(IMG/cidade.jpg) no-repeat center center;
+				-webkit-background-size: 100% 100%;
+				-moz-background-size: 100% 100%;
+				-o-background-size: 100% 100%;
+				background-size: 100% 100%;
+			}
+			label{
+				color: #00FFFF;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 20px;		
+			}
+		</style>				
+	</head>
+	<div id="all" align="center">
+		<body style="margin-top: 20px">		
+			<table  class=" table-sm" >
+				<form name="FRMcadastro"  method="post" method="get" action="PHP/IncluirUsuario.php" >
+					<td width="600px;"> 
+						<div class="form-group">
+							<label>Imagem de Perfil:</label>
+							<input type="file" name="IMG_Usuario" id="IMG_Usuario"  class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Nome Completo: </label> 
+							<input type="text" name="NM_Usuario" id="NM_Usuario" placeholder="Nome" maxlength="255" class="form-control" required minlength="5" >
+						</div>
+						<div class="form-group">													
+							<label>Data de Nascimento:</label>
+							<input type="text" name="DT_Nascimento" id="DT_Nascimento" placeholder="Data de Nascimento" class="form-control" required >
+						</div>
+						<div class="form-group">								
+							<label>Sexo: </label>
+							<select name="SEXO" id="Sexo" class="form-control">
+								<option value="Masculino">Masculino</option>
+								<option value="Feminino">Feminino</option>
+							</select>
+						</div>
+						<div class="form-group"> 								
+							<label>CPF: </label>		
+							<input type="text" name="CPF" id="CPF" placeholder="CPF" required size="12" maxlength="20" class="form-control" required minlength="14" >														
+						</div>											
+						<div class="form-group">
+							<label>Email: </label>
+							<input type="email" maxlength='155' name="DS_Email" id="DS_Email"  maxlength="100" placeholder="Email" class="form-control" required>
+						</div>
+						<div class="form-group">						
+							<label>Telefone 1: </label>
+							<input type="text"  name="Tel_1"  id="Tel_1" placeholder="Telefone Fixo" class="form-control" required minlength="12">
+						</div>				
+						<div class="form-group">						
+							<label>Telefone 2: </label>
+							<input type="text"  name="Tel_2"  id="Tel_2" placeholder="Telefone Celular"class="form-control" required minlength="13" >
+						</div>
+					</td>
+					<td width="600">
+						<div class="form-group">								
+							<label>CEP: </label>
+							<input type="text" maxlength="20" name="CEP" id="CEP" placeholder="CEP" class="form-control"  required>
+						</div>
+						<div class="form-group">											
+							<label>Endereco: </label>
+							<input type="text" maxlength='100' name="DS_Endereco" id="DS_Endereco" placeholder="Endereço" class="form-control" readonly>
+						</div>					
+						<div class="form-group">											
+							<label>Numero e Complemento </label>
+							<input type="text" maxlength='100' name="Complemento" id="Complemento" placeholder="Complemento" class="form-control" >
+						</div>
+						<div class="form-group">						
+							<label>Bairro: </label>
+							<input type="text" maxlength='100' name="DS_Bairro" id="DS_Bairro" placeholder="Bairro"class="form-control" >
+						</div>
+						<div class="form-group">								
+							<label>Cidade: </label>							
+							<input type="text" maxlength="255" name="DS_Cidade" id="DS_Cidade" placeholder="Cidade" class="form-control"  readonly>
+						</div>	
+						<div class="form-group">							
+							<label>Usuario </label>							
+							<input type="text" name="Username"  id="Username" class="form-control" maxlength="20"/>
+						</div>						
+						<div class="form-group">								
+						<label>Senha: </label>							
+							<input type="password" maxlength="20" placeholder="Senha" name="Password" id="Password"  class="form-control" required >
+						</div>	
+						<div class="form-group" id="TIPO">
+							<input type="text" name="TIPO" value="Solicitante"  class="form-control">
+						</div>
+						<br /><br />																											
+						<button class="btn btn-success" type="submit">Cadastrar</button>
+						<input class="btn btn-danger" type="reset" value="Limpar">
+						<a href="javascript:history.back()" class="btn btn-primary">Voltar</a> 					
+					</td>					
+				</form>
+			</table>
+		</body>
+	</div>
+</html>
